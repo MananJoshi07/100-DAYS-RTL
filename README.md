@@ -1,4 +1,4 @@
-# 100-DAYS-RTL
+# 75-DAYS-RTL
 
 This repository is created with the intension to learn and improve my knowledge of verilog, system verilog and digital circuits.
 In this 100 days RTL challenge i will try to cover as many circuits as possible along with the test bench and will try to cover the SV in perspective to verification as well as design.
