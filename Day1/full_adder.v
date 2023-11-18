@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 18.11.2023 15:43:19
+// Create Date: 18.11.2023 16:09:10
 // Design Name: 
-// Module Name: half_adder
+// Module Name: full_adder
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -18,14 +18,17 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module half_adder(
+module full_adder(
                     input a_in,
                     input b_in,
-                    output reg sum,
-                    output reg carry);
-always@(*)
-begin
-    sum= a_in ^ b_in;
-    carry= a_in & b_in;
-end                    
+                    input c_in,
+                    output sum_out,
+                    output c_out);
+
+wire s0, c0, c1;
+
+half_adder ha1( a_in,b_in,s0,c0 );
+half_adder ha2( s0,c_in,sum_out,c1 );
+
+assign c_out=c1 || c0;
 endmodule
