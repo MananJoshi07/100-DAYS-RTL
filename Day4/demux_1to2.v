@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module demux_2to1(
+module demux_1to2(
                     input sel,
                     input i,
                     output reg y0,y1);
