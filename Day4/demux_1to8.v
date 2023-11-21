@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 11/21/2023 12:13:53 PM
+// Create Date: 11/21/2023 12:31:12 PM
 // Design Name: 
-// Module Name: demux
+// Module Name: demux_1to8
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -18,18 +18,23 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module demux(
-             input [1:0] sel,
-             input  i,
-             output reg y0,y1,y2,y3);
-    
-  always @(*) begin
+module demux_1to8(
+    input [2:0] sel,
+    input in,
+    output reg [7:0] y);
+always@*
+begin
+y=0;
     case(sel)
-      2'h0: {y0,y1,y2,y3} = {i,3'b0};
-      2'h1: {y0,y1,y2,y3} = {1'b0,i,2'b0};
-      2'h2: {y0,y1,y2,y3} = {2'b0,i,1'b0};
-      2'h3: {y0,y1,y2,y3} = {3'b0,i};
-      default: $display("Invalid sel input");
+    3'd0: y[0]=in;
+    3'd1: y[1]=in;
+    3'd2: y[2]=in;
+    3'd3: y[3]=in;
+    3'd4: y[4]=in;
+    3'd5: y[5]=in;
+    3'd6: y[6]=in;
+    3'd7: y[7]=in;
     endcase
-  end
+end    
 endmodule
+   
