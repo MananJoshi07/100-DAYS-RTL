@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module demux(
+module demux_1to4(
              input [1:0] sel,
              input  i,
              output reg y0,y1,y2,y3);
