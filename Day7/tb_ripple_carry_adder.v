@@ -18,14 +18,14 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module tb_carry_look_ahead();
+module tb_ripple_carry_adder();
 reg [3:0] a_in;
 reg [3:0] b_in;
 reg  c_in;
 wire [3:0] sum_out;
 wire carry_out;
 
-carry_look_ahead DUT(.a_in(a_in),
+ripple_carry_adder DUT(.a_in(a_in),
                      .b_in(b_in),
                      .c_in(c_in),
                      .sum_out(sum_out),
