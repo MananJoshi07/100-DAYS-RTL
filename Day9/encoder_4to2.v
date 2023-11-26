@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module encoder_2to4(
+module encoder_4to2(
                     input en,
                     input [3:0] d_in,
                     output reg [1:0] y_out);
