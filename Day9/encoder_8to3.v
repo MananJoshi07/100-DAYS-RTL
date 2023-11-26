@@ -5,7 +5,7 @@
 // 
 // Create Date: 11/26/2023 11:51:37 PM
 // Design Name: 
-// Module Name: encoder_3to8
+// Module Name: encoder_8to3
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
