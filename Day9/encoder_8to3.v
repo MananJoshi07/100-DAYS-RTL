@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module encoder_3to8(
+module encoder_8to3(
                     input en,
                     input [7:0] d_in,
                     output reg [2:0] y_out);
