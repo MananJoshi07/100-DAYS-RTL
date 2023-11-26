@@ -20,12 +20,12 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module tb_encoder_2to4();
+module tb_encoder_4to2();
 reg en;
 reg [3:0] d_in;
 wire [1:0] y_out;
 
-encoder_2to4 DUT(.en(en),
+encoder_4to2 DUT(.en(en),
                       .d_in(d_in),
                       .y_out(y_out));
 always #10 en=$urandom();
