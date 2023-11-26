@@ -5,7 +5,7 @@
 // 
 // Create Date: 11/26/2023 11:47:22 PM
 // Design Name: 
-// Module Name: encoder_2to4
+// Module Name: encoder_4to2
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
