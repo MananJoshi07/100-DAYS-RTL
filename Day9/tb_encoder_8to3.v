@@ -5,7 +5,7 @@
 // 
 // Create Date: 11/27/2023 12:02:08 AM
 // Design Name: 
-// Module Name: tb_encoder_3to8
+// Module Name: tb_encoder_8to3
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,12 +20,12 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module tb_encoder_3to8();
+module tb_encoder_8to3();
 reg en;
 reg [7:0] d_in;
 wire [2:0] y_out;
 
-encoder_2to4 DUT(.en(en),
+encoder_8to3 DUT(.en(en),
                       .d_in(d_in),
                       .y_out(y_out));
 always #10 en=$urandom();
