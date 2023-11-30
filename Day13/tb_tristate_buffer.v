@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 11/30/2023 03:47:04 PM
+// Create Date: 11/30/2023 03:53:40 PM
 // Design Name: 
-// Module Name: tristate_buffer
+// Module Name: tb_tristate_buffer
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -19,16 +19,22 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 `define DATA_WIDTH 8
-module tristate_buffer(
-                        input [`DATA_WIDTH-1:0] data_in,
-                        input enable,
-                        output reg [`DATA_WIDTH-1:0]y_out);
+module tb_tristate_buffer();
+reg [`DATA_WIDTH-1:0] data_in;
+reg enable;
+wire [`DATA_WIDTH-1:0] y_out;
 
-always@(data_in, enable)
-begin
-if (enable==1)
-     y_out=data_in;
-     else
-    y_out='bZ;
-end
+tristate_buffer DUT(
+       .data_in(data_in),
+       .enable(enable),
+       .y_out(y_out));
+            
+initial
+    begin   
+    data_in=1'b0;
+    enable='b0;
+    #300 $finish;
+       end
+       always #10 enable=!enable;
+       always #10 data_in=data_in +1;
 endmodule

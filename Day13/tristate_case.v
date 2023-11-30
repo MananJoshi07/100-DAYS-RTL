@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 11/30/2023 03:47:04 PM
+// Create Date: 11/30/2023 03:50:18 PM
 // Design Name: 
-// Module Name: tristate_buffer
+// Module Name: tristate_case
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -19,16 +19,17 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 `define DATA_WIDTH 8
-module tristate_buffer(
+module tristate_case(
                         input [`DATA_WIDTH-1:0] data_in,
                         input enable,
                         output reg [`DATA_WIDTH-1:0]y_out);
 
-always@(data_in, enable)
+always@*
 begin
-if (enable==1)
-     y_out=data_in;
-     else
-    y_out='bZ;
+    case (enable)
+    'b1: y_out=data_in;
+    'b0:y_out='bZ;
+    default: y_out='b0;
+    endcase
 end
 endmodule
