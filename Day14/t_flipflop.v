@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 11/30/2023 04:35:17 PM
+// Create Date: 11/30/2023 04:39:27 PM
 // Design Name: 
-// Module Name: d_flipflop
+// Module Name: t_flipflop
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -18,17 +18,21 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-module d_flipflop(
-                  input d,
-                  input clk,
-                  input reset,
-                  output reg q);
-  
-always @(posedge clk, negedge reset)
+module t_flipflop(
+                  input t,clk,
+                  output reg q,q_bar);
+
+always@(posedge clk)
 begin
-   if (!reset)
-   q <= 0;
-   else
-   q <= d;
+    if(t==0)
+    begin
+    q= 1'b1;
+    q_bar= 1'b0;
+    end
+    else
+    begin
+    q= 1'b0;
+    q_bar= 1'b1;
+    end
 end
 endmodule
