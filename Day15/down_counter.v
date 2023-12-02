@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 12/02/2023 10:38:48 PM
+// Create Date: 12/02/2023 10:43:39 PM
 // Design Name: 
-// Module Name: up_counter
+// Module Name: down_counter
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -19,15 +19,16 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module up_counter(
-                  input clk,
-                  input reset_n,
-                  output reg [3:0] count);
+
+module down_counter(
+                    input clk,
+                    input reset_n,
+                    output reg [3:0] count);
 always@(posedge clk, negedge reset_n)
 begin
     if(!reset_n)
     count<='b0;
     else
-    count<= count+'b1;
+    count<= count-'b1;
 end                     
 endmodule
