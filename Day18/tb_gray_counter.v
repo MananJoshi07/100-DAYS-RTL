@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 12/02/2023 11:00:04 PM
+// Create Date: 12/02/2023 11:37:04 PM
 // Design Name: 
-// Module Name: tb_up_counter
+// Module Name: tb_gray_counter
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -19,12 +19,12 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module tb_up_counter();
+module tb_gray_counter();
 reg clk;
 reg reset_n;
 wire [3:0] count;
 
-up_counter DUT(.clk(clk),.reset_n(reset_n),.count(count));
+gray_counter DUT(.clk(clk),.reset_n(reset_n),.count(count));
 always #5 clk=~clk;
 always #200 reset_n= 'b1;
 initial
