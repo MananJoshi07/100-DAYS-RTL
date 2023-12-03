@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 12/03/2023 12:40:00 PM
+// Create Date: 12/03/2023 12:54:35 PM
 // Design Name: 
-// Module Name: jhonson_counter
+// Module Name: tb_jhonson_counter
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -19,16 +19,20 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module jhonson_counter(
-                        input clk,
-                        input reset_n,
-                        output reg [3:0] count);
+module tb_jhonson_counter();
+reg clk;
+reg reset_n;
+wire [3:0] count;
 
-always@(posedge clk, negedge reset_n)
+jhonson_counter DUT(.clk(clk),.reset_n(reset_n),.count(count));
+always #5 clk=~clk;
+always #200 reset_n= 'b1;
+initial
 begin
-    if(!reset_n)
-    count<='b0;
-    else
-    count<={~count[2:0], count[3]};
-end                    
+$monitor("time=%0t ,clk=%0b, rst=%0b, count=%0h", 
+$time, clk,reset_n,count);
+clk='b0;
+#10 reset_n='b0;
+#700 $finish();
+end  
 endmodule
