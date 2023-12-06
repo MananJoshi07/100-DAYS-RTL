@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 12/06/2023 11:05:52 AM
+// Create Date: 12/06/2023 11:25:15 AM
 // Design Name: 
-// Module Name: mod_2_counter
+// Module Name: mod_16_counter
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module mod_2_counter #(parameter WIDTH = 2)(
+module mod_16_counter#(parameter WIDTH = 16)(
                                             input clk,
                                             input reset,
                                             output reg [WIDTH-1:0] count);
@@ -31,7 +31,7 @@ begin
         count <= 0;
     end else begin
         count <= count + 1'b1;
-        if (count == 'b10) 
+        if (count == WIDTH-1) 
         begin
             count <= 0;
         end
