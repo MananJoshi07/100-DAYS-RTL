@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 12/06/2023 12:15:11 PM
+// Create Date: 12/06/2023 12:19:58 PM
 // Design Name: 
-// Module Name: mod_3_counter
+// Module Name: mod_7_counter
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module mod_3_counter#(parameter WIDTH = 3)(
+module mod_7_counter#(parameter WIDTH = 7)(
                                             input clk,
                                             input reset,
                                             output reg [WIDTH-1:0] count);
