@@ -20,10 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module mod_2_counter #(parameter WIDTH = 2)(
-                                            input clk,
-                                            input reset,
-                                            output reg [WIDTH-1:0] count);
+module mod_2_counter(
+                      input clk,
+                      input reset,
+                      output reg count);
 
 always @(posedge clk)
 begin
@@ -31,7 +31,7 @@ begin
         count <= 0;
     end else begin
         count <= count + 1'b1;
-        if (count == 'b10) 
+        if (count == 'b1) 
         begin
             count <= 0;
         end
