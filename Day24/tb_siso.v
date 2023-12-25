@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 12/25/2023 09:47:52 PM
+// Create Date: 12/25/2023 10:18:27 PM
 // Design Name: 
-// Module Name: pipo
+// Module Name: tb_siso
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,15 +20,27 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 `define DATA_WIDTH 4
-module pipo(input clk, rst,
-            input [`DATA_WIDTH-1:0] d,
-            output reg [`DATA_WIDTH-1:0] q_out);
+module tb_siso();
+reg clk;
+reg rst;
+reg s_in;
+wire s_out;
 
-always@(posedge clk)
+siso DUT(.clk(clk),
+         .rst(rst),
+         .s_in(s_in),
+         .s_out(s_out));
+
+always #10 clk=~clk;
+always #20 s_in=$urandom();
+always #60 rst=~rst;
+
+initial
 begin
-    if(rst)
-    q_out <= 4'b0000;
-    else
-    q_out<= d;
-end               
+$monitor("time=%0t, clk=%0b, rst=%0b, s_in=%0b, s_out=%0b",
+$time, clk, rst, s_in, s_out);
+clk='b0;
+rst='b0;
+s_in='b0;
+end         
 endmodule

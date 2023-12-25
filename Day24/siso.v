@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 12/25/2023 09:47:52 PM
+// Create Date: 12/25/2023 10:09:56 PM
 // Design Name: 
-// Module Name: pipo
+// Module Name: siso
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -19,16 +19,17 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-`define DATA_WIDTH 4
-module pipo(input clk, rst,
-            input [`DATA_WIDTH-1:0] d,
-            output reg [`DATA_WIDTH-1:0] q_out);
 
-always@(posedge clk)
+module siso(input clk,s_in,rst,
+            output reg s_out); 
+reg [3:0] tmp;
+always @(posedge clk )
 begin
-    if(rst)
-    q_out <= 4'b0000;
+    if (rst)
+    tmp <=4'b0000;
     else
-    q_out<= d;
-end               
+    tmp <= tmp << 1;
+    tmp[0] <= s_in;
+    s_out = tmp[3];
+end
 endmodule
