@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 12/25/2023 10:14:03 PM
+// Create Date: 12/25/2023 10:15:54 PM
 // Design Name: 
-// Module Name: sipo
+// Module Name: piso
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -19,18 +19,20 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+`define DATA_WIDTH 4
+module piso(input [`DATA_WIDTH-1:0] p_in,
+            input clk,load,
+            output reg s_out);
 
-module sipo(input clk,din,rst,
-            output reg [3:0] dout);
-
-reg [3:0] tmp;
-
-always @(posedge clk )
+reg [`DATA_WIDTH-1:0]temp = 0;
+always @(posedge clk)
 begin
-    if (rst)
-    dout = 4'b0000;
+    if(load)
+    temp<=p_in;
     else
-    tmp = dout >>1 ;
-    dout = {din,tmp[2:0]};
+    begin
+    s_out<=temp[3];
+    temp<={temp[2:0],1'b0};
+    end
 end
 endmodule

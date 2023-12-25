@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 12/25/2023 10:14:03 PM
+// Create Date: 12/25/2023 10:21:09 PM
 // Design Name: 
-// Module Name: sipo
+// Module Name: tb_sipo
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -19,18 +19,27 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+module tb_sipo();
+reg clk;
+reg rst;
+reg din;
+wire dout;
 
-module sipo(input clk,din,rst,
-            output reg [3:0] dout);
+sipo DUT(.clk(clk),
+         .rst(rst),
+         .din(din),
+         .dout(dout));
 
-reg [3:0] tmp;
+always #10 clk=~clk;
+always #20 din=$urandom();
+always #60 rst=~rst;
 
-always @(posedge clk )
+initial
 begin
-    if (rst)
-    dout = 4'b0000;
-    else
-    tmp = dout >>1 ;
-    dout = {din,tmp[2:0]};
-end
+$monitor("time=%0t, clk=%0b, rst=%0b, din=%0b, dout=%0b",
+$time, clk, rst, din, dout);
+clk='b0;
+rst='b0;
+din='b0;
+end         
 endmodule
