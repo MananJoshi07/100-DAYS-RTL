@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module left_shift_register#(parameter WIDTH = 4)(
+module right_shift_register#(parameter WIDTH = 4)(
   input clk,
   input rst_n,
   input enable,
@@ -32,7 +32,7 @@ module left_shift_register#(parameter WIDTH = 4)(
       dout <= 0;
     end else begin
       if (enable) begin
-        dout <= {din[WIDTH-2:0], dout[WIDTH-1]}; // Shift left by 1 bit
+        dout <= {din[WIDTH-2:0], dout[WIDTH-1]}; // circular shift right by 1 bit
       end else begin
         dout <= 0;
       end
